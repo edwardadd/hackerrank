@@ -10,29 +10,13 @@ func memset(s []byte, c byte, offset int, n int) []byte {
 }
 
 func FindDecentNumber(n int) string {
-
 	if n < 3 {
 		return "-1"
 	}
 
-	remainder5s := n % 3
-	remainder3s := n % 5
-
-	total5s := n / 3
-	total3s := n / 5
+	total5s := int(n / 3)
 
 	var result []byte = make([]byte, n)
-
-	// how many 5s can we fit first
-	if remainder5s == 0 && total5s > 0 {
-		result = memset(result, '5', 0, total5s*3)
-		return string(result)
-	}
-
-	if remainder3s == 0 && total3s > 0 {
-		result = memset(result, '3', 0, total3s*5)
-		return string(result)
-	}
 
 	// see if we can fill the rest of the spaces with 3s
 	// if 5s can't fit see whether 3s can
